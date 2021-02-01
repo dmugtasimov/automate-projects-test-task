@@ -7,7 +7,8 @@ authors = ["Your Name <you@example.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 requests = "*"
-undetected-chromedriver = "*"
+chromedriver-autoinstaller = "*"
+selenium = "*"
 
 [tool.poetry.dev-dependencies]
 

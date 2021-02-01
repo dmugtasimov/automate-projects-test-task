@@ -1,40 +1,24 @@
-import pdb
 import time
-import os
 
-import requests
-import undetected_chromedriver as uc
 from selenium import webdriver
 from selenium.webdriver.common.by import By 
 from selenium.webdriver.support.ui import WebDriverWait 
 from selenium.webdriver.support import expected_conditions as EC 
-from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.action_chains import ActionChains 
+from selenium.webdriver.common.action_chains import ActionChains
+from automate_projects_test_task.selenium import get_driver
+from automate_projects_test_task.logging import configure_logging_basic
 
-# Chrome Driver path.
-CHROME_DRIVER_PATH = '/Users/Winterfell/Downloads/chromedriver'
-# print("Provide chromedriver path..")
-# CHROME_DRIVER_PATH = 'C:\\Users\\Vlad\\Downloads\\chromedriver_win32\\chromedriver.exe'
-# CHROME_DRIVER_PATH = input()
+
+configure_logging_basic()
 
 # Scraped URL.
-print ("Please insert url...")
+print("Please insert url...")
 # url = "https://www.gowork.pl/opinie_czytaj,729637"
 url = input()
 
-# Chrome Driver Options.
-options = webdriver.ChromeOptions()  
-options.add_argument("--disable-blink-features=AutomationControlled")
-# options.add_argument("--headless")    # Tried, but it won't pass cloudflare antibot
-options.add_experimental_option("excludeSwitches", ["enable-automation"])
-options.add_experimental_option('useAutomationExtension', False)
-# options.add_argument("--headless")    # Tried, but it won't pass cloudflare antibot
-options.add_argument("--disable-extensions")
-options.add_argument("--enable-javascript")
-options.add_argument("--disable-popup-blocking")
 
-driver = uc.Chrome(executable_path=CHROME_DRIVER_PATH, options=options)
+driver = get_driver()
 action = webdriver.ActionChains(driver)
 driver.get(url)
 
