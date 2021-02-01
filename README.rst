@@ -40,3 +40,10 @@ to get the latest version for development.
 
     # Ensure you are in `automate-projects-test-task` repo root directory
     make dev-env-setup
+
+Run
+---
+
+#. Run script::
+
+    poetry python -m automate_projects_test_task.console
