@@ -44,6 +44,7 @@ to get the latest version for development.
 Run
 ---
 
-#. Run script::
+#. Run::
 
-    poetry python -m automate_projects_test_task.console
+    poetry python -m automate_projects_test_task.cli nickname 'date time'
+    # Example: poetry python -m automate_projects_test_task.cli Daniel88 '29.10.2020 13:10'
